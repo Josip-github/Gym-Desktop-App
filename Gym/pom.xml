@@ -24,5 +24,11 @@
             <version>5.5.7.Final</version>
         </dependency>
         
+        <dependency>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
+            <version>1.7</version>
+        </dependency>
+        
     </dependencies>
 </project>
