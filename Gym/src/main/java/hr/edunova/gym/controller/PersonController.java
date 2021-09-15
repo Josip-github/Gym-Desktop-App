@@ -18,6 +18,8 @@ public abstract class PersonController<T extends Person> extends Controller<T> {
     protected void createController() throws GymException{
         oibController();
         firstnameController();
+        lastnameController();
+        emailController();
     }
 
     private void oibController() throws GymException {
@@ -69,6 +71,35 @@ public abstract class PersonController<T extends Person> extends Controller<T> {
            throw new GymException("Name can't have more than 50 characters.");
        }
        
+    }
+
+    private void lastnameController() throws GymException {
+        
+       for(char c: entity.getLastname().toCharArray()){
+           if(!(Character.isLetter(c))){
+               throw new GymException("You can't use numbers or characters for a name"
+                       + ", only letters are allowed.");
+           }
+       }
+        
+       if(entity.getLastname().equals(null) || entity.getLastname().trim().length()==0){
+           throw new GymException("Name can't be empty.");
+       }
+       
+       if(entity.getLastname().length() > 50){
+           throw new GymException("Name can't have more than 50 characters.");
+       }
+    }
+
+    private void emailController() throws GymException {
+       
+       if(!(entity.getEmail().contains("@"))){
+           throw new GymException("Email has to contain character @");
+       }
+       
+       if(entity.getEmail().length() > 50){
+           throw new GymException("Email is too long...");
+       }
     }
     
     
