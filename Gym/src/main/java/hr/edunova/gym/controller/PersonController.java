@@ -17,6 +17,7 @@ public abstract class PersonController<T extends Person> extends Controller<T> {
     @Override
     protected void createController() throws GymException{
         oibController();
+        firstnameController();
     }
 
     private void oibController() throws GymException {
@@ -49,6 +50,25 @@ public abstract class PersonController<T extends Person> extends Controller<T> {
             kontrolni = 0;
 
         return kontrolni == Integer.parseInt(oib.substring(10));
+    }
+
+    private void firstnameController() throws GymException {
+        
+        for(char c: entity.getFirstname().toCharArray()){
+           if(!(Character.isLetter(c))){
+               throw new GymException("You can't use numbers or characters for a name"
+                       + ", only letters are allowed.");
+           }
+       }
+        
+       if(entity.getFirstname().equals(null) || entity.getFirstname().trim().length()==0){
+           throw new GymException("Name can't be empty.");
+       }
+       
+       if(entity.getFirstname().length() > 50){
+           throw new GymException("Name can't have more than 50 characters.");
+       }
+       
     }
     
     
