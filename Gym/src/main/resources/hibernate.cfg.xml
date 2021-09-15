@@ -10,7 +10,7 @@
     <session-factory>
         <!-- JDBC Database connection settings -->
         <property name="connection.driver_class">org.mariadb.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mariadb://localhost:3306/edunovajp24_hib</property>
+        <property name="connection.url">jdbc:mariadb://localhost:3306/gym_hib</property>
         <property name="connection.username">edunova</property>
         <property name="connection.password">edunova</property>
         <!-- JDBC connection pool settings ... using built-in test pool -->
@@ -41,32 +41,11 @@
         <property name="hibernate.dbcp.minIdle">5</property>
         <property name="hibernate.dbcp.maxWaitMillis">-1</property>
          
-        <mapping class="edunova.jp24.model.Polaznik" />
-        <mapping class="edunova.jp24.model.Predavac" />
-        <mapping class="edunova.jp24.model.Smjer" />
-        <mapping class="edunova.jp24.model.Grupa" />
+        <mapping class="model.Employee" />
+        <mapping class="model.Member" />
+        <mapping class="model.Course" />
+        <mapping class="model.Membership" />
         
         
-        
-        <!--
-         <mapping class="edunova.jp24.vjezbanjemapiranje.vjezbasubota.Clan" />
-         <mapping class="edunova.jp24.vjezbanjemapiranje.vjezbasubota.Gradd" />
-         <mapping class="edunova.jp24.vjezbanjemapiranje.vjezbasubota.Smjerr" />
-         -->
-        <!-- Ovdje navodimo mapirane klase 
-         <mapping class="edunova.jp24.vjezbanjemapiranje.osnovno.Racunalo" /> 
-         <mapping class="edunova.jp24.vjezbanjemapiranje.osnovno.Olovka" />
-         <mapping class="edunova.jp24.vjezbanjemapiranje.prilagodjeno.Mobitel" />
-         <mapping class="edunova.jp24.vjezbanjemapiranje.prilagodjeno.Ucionica" />
-         
-         <mapping class="edunova.jp24.vjezbanjemapiranje.nasljedjivanje.Automobil" />
-         <mapping class="edunova.jp24.vjezbanjemapiranje.nasljedjivanje.Bicikl" />
-         
-         <mapping class="edunova.jp24.vjezbanjemapiranje.vezavisenapremajedan.Grad" />
-         <mapping class="edunova.jp24.vjezbanjemapiranje.vezavisenapremajedan.Igrac" />
-         
-         <mapping class="edunova.jp24.vjezbanjemapiranje.vezavisenapremavise.Oznaka" />
-         <mapping class="edunova.jp24.vjezbanjemapiranje.vezavisenapremavise.Slika" />
--->
     </session-factory>
 </hibernate-configuration>
