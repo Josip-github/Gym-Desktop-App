@@ -41,10 +41,10 @@
         <property name="hibernate.dbcp.minIdle">5</property>
         <property name="hibernate.dbcp.maxWaitMillis">-1</property>
          
-        <mapping class="model.Employee" />
-        <mapping class="model.Member" />
-        <mapping class="model.Course" />
-        <mapping class="model.Membership" />
+        <mapping class="hr.edunova.gym.model.Employee" />
+        <mapping class="hr.edunova.gym.model.Member" />
+        <mapping class="hr.edunova.gym.model.Course" />
+        <mapping class="hr.edunova.gym.model.Membership" />
         
         
     </session-factory>
