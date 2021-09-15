@@ -22,6 +22,16 @@ public abstract class PersonController<T extends Person> extends Controller<T> {
         emailController();
     }
 
+    @Override
+    protected void updateController() throws GymException{
+        oibController();
+        firstnameController();
+        lastnameController();
+        emailController();
+    }
+    
+    
+
     private void oibController() throws GymException {
        if(!oibCorrect(entity.getOib())){
            throw new GymException("Oib is not correct.");
