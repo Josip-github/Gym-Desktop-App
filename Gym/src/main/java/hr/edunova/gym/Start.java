@@ -6,6 +6,7 @@
 package hr.edunova.gym;
 
 import hr.edunova.gym.util.HibernateUtil;
+import hr.edunova.gym.view.SplashScreen;
 
 /**
  *
@@ -14,6 +15,6 @@ import hr.edunova.gym.util.HibernateUtil;
 public class Start {
  
     public static void main(String[] args) {
-        HibernateUtil.getSession();
+        new SplashScreen().setVisible(true);
     }
 }
