@@ -13,7 +13,7 @@ import javax.persistence.Entity;
  * @author Vlasnik
  */
 @Entity
-public class Course extends Object {
+public class Course extends Instance{
     
     private String name;
     

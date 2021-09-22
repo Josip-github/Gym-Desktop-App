@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
  * @author Vlasnik
  */
 @Entity
-public class Membership extends Object {
+public class Membership extends Instance {
     
     @ManyToOne
     private Course course;

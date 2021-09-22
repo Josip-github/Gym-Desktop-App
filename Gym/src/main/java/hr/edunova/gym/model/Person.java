@@ -13,7 +13,7 @@ import javax.persistence.MappedSuperclass;
  * @author Vlasnik
  */
 @MappedSuperclass
-public class Person extends Object {
+public class Person extends Instance {
     
     private String firstname;
     

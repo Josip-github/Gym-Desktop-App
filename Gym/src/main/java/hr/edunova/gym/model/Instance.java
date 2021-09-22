@@ -15,7 +15,7 @@ import javax.persistence.MappedSuperclass;
  * @author Vlasnik
  */
 @MappedSuperclass
-public class Object {
+public class Instance {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
