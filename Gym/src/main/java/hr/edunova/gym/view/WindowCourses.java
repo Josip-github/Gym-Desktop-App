@@ -8,6 +8,7 @@ package hr.edunova.gym.view;
 import hr.edunova.gym.controller.CourseController;
 import hr.edunova.gym.model.Course;
 import hr.edunova.gym.util.Application;
+import java.math.BigDecimal;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -151,6 +152,13 @@ public class WindowCourses extends javax.swing.JFrame {
             s.setDuration(Integer.parseInt(txtDuration.getText()));
         } catch(Exception e){
             JOptionPane.showMessageDialog(getRootPane(), "For duration you have to type a whole number.");
+            return;
+        }
+        try{
+            s.setPrice(new BigDecimal(txtPrice.getText()));
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(getRootPane(), "For price you have to type a decimal number.");
+            return;
         }
     }
     /**
