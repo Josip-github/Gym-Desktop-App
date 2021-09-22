@@ -6,7 +6,9 @@
 package hr.edunova.gym.view;
 
 import hr.edunova.gym.controller.CourseController;
+import hr.edunova.gym.model.Course;
 import hr.edunova.gym.util.Application;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -22,10 +24,17 @@ public class WindowCourses extends javax.swing.JFrame {
         initComponents();
         courseController = new CourseController();
         settings();
+        readCourses();
     }
     
     private void settings(){
         setTitle(Application.getTitle("Courses"));
+    }
+    
+    private void readCourses(){
+        DefaultListModel<Course> m = new DefaultListModel<>();
+        courseController.read().forEach(c->{m.addElement(c);});
+        lstCourses.setModel(m);
     }
 
     /**
@@ -167,7 +176,7 @@ public class WindowCourses extends javax.swing.JFrame {
     private javax.swing.JLabel lblDuration;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPrice;
-    private javax.swing.JList<String> lstCourses;
+    private javax.swing.JList<Course> lstCourses;
     private javax.swing.JTextField txtDuration;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPrice;
