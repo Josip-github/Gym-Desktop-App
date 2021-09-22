@@ -16,6 +16,11 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        settings();
+    }
+    
+    private void settings(){
+        //setTitle(title);
     }
 
     /**
