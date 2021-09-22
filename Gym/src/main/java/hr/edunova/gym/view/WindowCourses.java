@@ -5,17 +5,27 @@
  */
 package hr.edunova.gym.view;
 
+import hr.edunova.gym.controller.CourseController;
+import hr.edunova.gym.util.Application;
+
 /**
  *
  * @author Vlasnik
  */
 public class WindowCourses extends javax.swing.JFrame {
 
+    private CourseController courseController;
     /**
      * Creates new form WindowCourses
      */
     public WindowCourses() {
         initComponents();
+        courseController = new CourseController();
+        settings();
+    }
+    
+    private void settings(){
+        setTitle(Application.getTitle("Courses"));
     }
 
     /**
