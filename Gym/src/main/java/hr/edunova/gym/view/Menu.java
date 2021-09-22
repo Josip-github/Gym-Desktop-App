@@ -5,6 +5,8 @@
  */
 package hr.edunova.gym.view;
 
+import hr.edunova.gym.util.Application;
+
 /**
  *
  * @author Vlasnik
@@ -20,7 +22,7 @@ public class Menu extends javax.swing.JFrame {
     }
     
     private void settings(){
-        //setTitle(title);
+        setTitle(Application.getTitle("Menu"));
     }
 
     /**

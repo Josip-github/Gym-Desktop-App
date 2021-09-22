@@ -12,4 +12,8 @@ package hr.edunova.gym.util;
 public class Application {
     
     public static final String TITLE_APP = "Gym App";
+    
+    public static String getTitle(String name){
+        return Application.TITLE_APP + " name";
+    }
 }
