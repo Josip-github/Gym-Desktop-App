@@ -5,6 +5,7 @@
  */
 package hr.edunova.gym.model;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -23,6 +24,10 @@ public class Membership extends Object {
     private Member member;
     
     private Date dateOfBegin;
+    
+    private Date dateOfEnd;
+    
+    private BigDecimal price;
     
     private Boolean payment;
 
@@ -57,6 +62,24 @@ public class Membership extends Object {
     public void setPayment(Boolean payment) {
         this.payment = payment;
     }
+
+    public Date getDateOfEnd() {
+        return dateOfEnd;
+    }
+
+    public void setDateOfEnd(Date dateOfEnd) {
+        this.dateOfEnd = dateOfEnd;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+    
+    
     
     
 }
