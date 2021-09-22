@@ -20,6 +20,8 @@ public class SplashScreen extends javax.swing.JFrame {
      */
     public SplashScreen() {
         initComponents();
+        Loading loading = new Loading();
+        loading.start();
         
     }
     
@@ -29,7 +31,7 @@ public class SplashScreen extends javax.swing.JFrame {
         public void run() {
             Session s = HibernateUtil.getSession();
             if(s.getMetamodel().getEntities().size() > 0){
-                // new Menu().setVisible(true);
+                new Menu().setVisible(true);
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(getRootPane(), "There is some problem with database.");
