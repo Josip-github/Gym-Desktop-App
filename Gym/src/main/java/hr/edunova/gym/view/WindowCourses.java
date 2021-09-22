@@ -8,6 +8,7 @@ package hr.edunova.gym.view;
 import hr.edunova.gym.controller.CourseController;
 import hr.edunova.gym.model.Course;
 import hr.edunova.gym.util.Application;
+import hr.edunova.gym.util.GymException;
 import java.math.BigDecimal;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -138,6 +139,13 @@ public class WindowCourses extends javax.swing.JFrame {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         courseController.setEntity(new Course());
         setValuesIntoEntity();
+        
+        try{
+            courseController.create();
+            readCourses();
+        } catch(GymException ex){
+            JOptionPane.showMessageDialog(getRootPane(), ex.getMessage());
+        }
         
     }//GEN-LAST:event_btnAddActionPerformed
 
