@@ -63,6 +63,11 @@ public class WindowCourses extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        lstCourses.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstCoursesValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(lstCourses);
 
         lblName.setText("Name:");
@@ -148,6 +153,19 @@ public class WindowCourses extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void lstCoursesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstCoursesValueChanged
+        
+        if(evt.getValueIsAdjusting() || lstCourses.getSelectedValue()==null){
+            return;
+        }
+        courseController.setEntity(lstCourses.getSelectedValue());
+        var s = courseController.getEntity();
+        txtName.setText(s.getName());
+        txtDuration.setText(String.valueOf(s.getDuration()));
+        txtPrice.setText(String.valueOf(s.getPrice()));
+        
+    }//GEN-LAST:event_lstCoursesValueChanged
 
     private void setValuesIntoEntity(){
         var s = courseController.getEntity();
