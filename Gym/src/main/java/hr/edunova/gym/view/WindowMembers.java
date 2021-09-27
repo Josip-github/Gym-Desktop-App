@@ -5,18 +5,39 @@
  */
 package hr.edunova.gym.view;
 
+import hr.edunova.gym.controller.MemberController;
+import hr.edunova.gym.model.Member;
+import hr.edunova.gym.util.Application;
+import hr.edunova.gym.util.GymException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Vlasnik
  */
 public class WindowMembers extends javax.swing.JFrame {
 
-    
+    private MemberController memberController;
     /**
      * Creates new form WindowMembers
      */
     public WindowMembers() {
         initComponents();
+        memberController = new MemberController();
+        settings();
+        readMembers();
+    }
+    
+    private void settings(){
+        setTitle(Application.getTitle("Members"));
+    }
+    
+    private void readMembers(){
+        DefaultListModel<Member> m = new DefaultListModel<>();
+        memberController.read().forEach(mb -> {m.addElement(mb);});
     }
 
     /**
@@ -62,13 +83,33 @@ public class WindowMembers extends javax.swing.JFrame {
             }
         });
 
+        jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList1ValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(jList1);
 
         btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
         btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,40 +177,65 @@ public class WindowMembers extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFirstnameActionPerformed
 
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        
+        memberController.setEntity(new Member());
+        setValuesIntoEntity();
+        
+        try {
+            memberController.create();
+            readMembers();
+        } catch (GymException ex) {
+            JOptionPane.showMessageDialog(getRootPane(), ex.getMessage());
+        }
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        
+        setValuesIntoEntity();
+        try {
+            memberController.create();
+            readMembers();
+        } catch (GymException ex) {
+            JOptionPane.showMessageDialog(getRootPane(), ex.getMessage());
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        
+        setValuesIntoEntity();
+        try {
+            memberController.delete();
+            readMembers();
+        } catch (GymException ex) {
+            JOptionPane.showMessageDialog(getRootPane(), ex.getMessage());
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
+        
+        if(evt.getValueIsAdjusting() || jList1.getSelectedValue()==null){
+            return;
+        }
+        memberController.setEntity(jList1.getSelectedValue());
+        var m = memberController.getEntity();
+        txtFirstname.setText(m.getFirstname());
+        txtLastname.setText(m.getLastname());
+        txtOib.setText(m.getOib());
+        txtEmail.setText(m.getEmail());
+    }//GEN-LAST:event_jList1ValueChanged
+
+    private void setValuesIntoEntity(){
+        var s = memberController.getEntity();
+        s.setFirstname(txtFirstname.getText());
+        s.setLastname(txtLastname.getText());
+        s.setOib(txtOib.getText());
+        s.setEmail(txtEmail.getText());
+    }
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(WindowMembers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(WindowMembers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(WindowMembers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(WindowMembers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new WindowMembers().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
