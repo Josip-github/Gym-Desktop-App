@@ -30,7 +30,6 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lblName" min="-2" pref="46" max="-2" attributes="0"/>
                   <Component id="txtName" min="-2" pref="181" max="-2" attributes="0"/>
-                  <Component id="lblDuration" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
                   <Component id="txtDuration" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
                   <Component id="lblPrice" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
                   <Component id="txtPrice" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
@@ -41,6 +40,7 @@
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="btnDelete" min="-2" pref="87" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="lblDuration" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
           </Group>
