@@ -44,6 +44,14 @@ public class Course extends Instance{
     public void setDuration(int duration) {
         this.duration = duration;
     }
+
+    @Override
+    public String toString() {
+        return "Course: " + name;
+    }
+
+    
+    
     
     
 }

@@ -15,7 +15,7 @@
     </Container>
   </NonVisualComponents>
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -49,15 +49,13 @@
                       <Component id="btnDelete" min="-2" pref="73" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblEmail" max="32767" attributes="0"/>
-                              <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="lblFirstname" min="-2" pref="76" max="-2" attributes="0"/>
-                          <Component id="lblLastname" min="-2" pref="76" max="-2" attributes="0"/>
-                          <Component id="lblOib" alignment="0" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lblEmail" max="32767" attributes="0"/>
+                          <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="lblFirstname" min="-2" pref="76" max="-2" attributes="0"/>
+                      <Component id="lblLastname" min="-2" pref="76" max="-2" attributes="0"/>
+                      <Component id="lblOib" alignment="0" min="-2" pref="34" max="-2" attributes="0"/>
                       <Component id="txtFirstname" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtLastname" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtOib" alignment="0" max="32767" attributes="0"/>
