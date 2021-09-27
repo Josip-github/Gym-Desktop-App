@@ -55,6 +55,11 @@ public class Person extends Instance {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public String toString() {
+        return "Person: " + firstname + " " + lastname;
+    }
     
     
 }

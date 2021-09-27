@@ -38,6 +38,7 @@ public class WindowMembers extends javax.swing.JFrame {
     private void readMembers(){
         DefaultListModel<Member> m = new DefaultListModel<>();
         memberController.read().forEach(mb -> {m.addElement(mb);});
+        jList1.setModel(m);
     }
 
     /**
