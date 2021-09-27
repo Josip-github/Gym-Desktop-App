@@ -54,6 +54,7 @@ public class SplashScreen extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        lblImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/regent-street-gym-equipment.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
