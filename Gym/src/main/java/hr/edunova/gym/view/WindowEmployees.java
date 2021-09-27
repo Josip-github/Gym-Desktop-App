@@ -5,7 +5,9 @@
  */
 package hr.edunova.gym.view;
 
+import hr.edunova.gym.controller.EmployeeController;
 import hr.edunova.gym.controller.MemberController;
+import hr.edunova.gym.model.Employee;
 import hr.edunova.gym.model.Member;
 import hr.edunova.gym.util.Application;
 import hr.edunova.gym.util.GymException;
@@ -20,24 +22,24 @@ import javax.swing.JOptionPane;
  */
 public class WindowEmployees extends javax.swing.JFrame {
 
-    private MemberController memberController;
+    private EmployeeController employeeController;
     /**
      * Creates new form WindowMembers
      */
     public WindowEmployees() {
         initComponents();
-        memberController = new MemberController();
+        employeeController = new EmployeeController();
         settings();
         readMembers();
     }
     
     private void settings(){
-        setTitle(Application.getTitle("Members"));
+        setTitle(Application.getTitle("Employees"));
     }
     
     private void readMembers(){
-        DefaultListModel<Member> m = new DefaultListModel<>();
-        memberController.read().forEach(mb -> {m.addElement(mb);});
+        DefaultListModel<Employee> m = new DefaultListModel<>();
+        employeeController.read().forEach(e -> {m.addElement(e);});
         jList1.setModel(m);
     }
 
@@ -179,11 +181,11 @@ public class WindowEmployees extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         
-        memberController.setEntity(new Member());
+        employeeController.setEntity(new Employee());
         setValuesIntoEntity();
         
         try {
-            memberController.create();
+            employeeController.create();
             readMembers();
         } catch (GymException ex) {
             JOptionPane.showMessageDialog(getRootPane(), ex.getMessage());
@@ -194,7 +196,7 @@ public class WindowEmployees extends javax.swing.JFrame {
         
         setValuesIntoEntity();
         try {
-            memberController.create();
+            employeeController.create();
             readMembers();
         } catch (GymException ex) {
             JOptionPane.showMessageDialog(getRootPane(), ex.getMessage());
@@ -205,7 +207,7 @@ public class WindowEmployees extends javax.swing.JFrame {
         
         setValuesIntoEntity();
         try {
-            memberController.delete();
+            employeeController.delete();
             readMembers();
         } catch (GymException ex) {
             JOptionPane.showMessageDialog(getRootPane(), ex.getMessage());
@@ -217,8 +219,8 @@ public class WindowEmployees extends javax.swing.JFrame {
         if(evt.getValueIsAdjusting() || jList1.getSelectedValue()==null){
             return;
         }
-        memberController.setEntity(jList1.getSelectedValue());
-        var m = memberController.getEntity();
+        employeeController.setEntity(jList1.getSelectedValue());
+        var m = employeeController.getEntity();
         txtFirstname.setText(m.getFirstname());
         txtLastname.setText(m.getLastname());
         txtOib.setText(m.getOib());
@@ -226,7 +228,7 @@ public class WindowEmployees extends javax.swing.JFrame {
     }//GEN-LAST:event_jList1ValueChanged
 
     private void setValuesIntoEntity(){
-        var s = memberController.getEntity();
+        var s = employeeController.getEntity();
         s.setFirstname(txtFirstname.getText());
         s.setLastname(txtLastname.getText());
         s.setOib(txtOib.getText());
@@ -241,7 +243,7 @@ public class WindowEmployees extends javax.swing.JFrame {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
-    private javax.swing.JList<Member> jList1;
+    private javax.swing.JList<Employee> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextPane jTextPane1;
