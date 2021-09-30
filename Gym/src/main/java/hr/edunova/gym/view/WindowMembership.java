@@ -5,17 +5,38 @@
  */
 package hr.edunova.gym.view;
 
+import hr.edunova.gym.controller.CourseController;
+import hr.edunova.gym.model.Course;
+import hr.edunova.gym.model.Member;
+import hr.edunova.gym.util.Application;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author Vlasnik
  */
 public class WindowMembership extends javax.swing.JFrame {
 
+    private CourseController courseController;
     /**
      * Creates new form WindowMembership
      */
     public WindowMembership() {
         initComponents();
+        courseController = new CourseController();
+        settings();
+        readCourses();
+    }
+    
+    private void settings(){
+        setTitle(Application.getTitle("Membership"));
+    }
+    
+    private void readCourses(){
+        DefaultListModel<Course> m = new DefaultListModel<>();
+        courseController.read().forEach(c -> {m.addElement(c);});
+        lstCourses.setModel(m);
+        
     }
 
     /**
@@ -28,7 +49,7 @@ public class WindowMembership extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        lstMembers = new javax.swing.JList<>();
+        lstCourses = new javax.swing.JList<>();
         lblMembers = new javax.swing.JLabel();
         cbMembers = new javax.swing.JComboBox<>();
         dpDateOfBegin = new com.github.lgooddatepicker.components.DatePicker();
@@ -36,10 +57,11 @@ public class WindowMembership extends javax.swing.JFrame {
         lblPrice = new javax.swing.JLabel();
         txtPrice = new javax.swing.JTextField();
         chBoxPayment = new javax.swing.JCheckBox();
+        lblDateOfEnd = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jScrollPane1.setViewportView(lstMembers);
+        jScrollPane1.setViewportView(lstCourses);
 
         lblMembers.setText("Members:");
 
@@ -57,6 +79,8 @@ public class WindowMembership extends javax.swing.JFrame {
 
         chBoxPayment.setText("Payment:");
 
+        lblDateOfEnd.setText("Date of end:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -72,15 +96,17 @@ public class WindowMembership extends javax.swing.JFrame {
                         .addComponent(dpDateOfBegin, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE))
                     .addComponent(lblDateOfBegin, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chBoxPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chBoxPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblDateOfEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(334, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(70, 70, 70)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblMembers, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -90,13 +116,14 @@ public class WindowMembership extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(dpDateOfBegin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
+                        .addComponent(lblDateOfEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(lblPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(chBoxPayment))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(150, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(chBoxPayment)))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         pack();
@@ -147,9 +174,10 @@ public class WindowMembership extends javax.swing.JFrame {
     private com.github.lgooddatepicker.components.DatePicker dpDateOfBegin;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDateOfBegin;
+    private javax.swing.JLabel lblDateOfEnd;
     private javax.swing.JLabel lblMembers;
     private javax.swing.JLabel lblPrice;
-    private javax.swing.JList<Member> lstMembers;
+    private javax.swing.JList<Course> lstCourses;
     private javax.swing.JTextField txtPrice;
     // End of variables declaration//GEN-END:variables
 }

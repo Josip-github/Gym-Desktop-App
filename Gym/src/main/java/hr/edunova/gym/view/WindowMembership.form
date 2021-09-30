@@ -2,7 +2,7 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -35,8 +35,9 @@
                   </Group>
                   <Component id="lblDateOfBegin" min="-2" pref="91" max="-2" attributes="0"/>
                   <Component id="lblPrice" min="-2" pref="77" max="-2" attributes="0"/>
-                  <Component id="txtPrice" min="-2" pref="127" max="-2" attributes="0"/>
                   <Component id="chBoxPayment" min="-2" pref="81" max="-2" attributes="0"/>
+                  <Component id="txtPrice" min="-2" pref="127" max="-2" attributes="0"/>
+                  <Component id="lblDateOfEnd" min="-2" pref="113" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="334" max="32767" attributes="0"/>
           </Group>
@@ -46,7 +47,8 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jScrollPane1" min="-2" pref="346" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="lblMembers" min="-2" pref="22" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -56,15 +58,16 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="dpDateOfBegin" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="lblDateOfEnd" min="-2" pref="23" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="lblPrice" min="-2" pref="23" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="txtPrice" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="chBoxPayment" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane1" min="-2" pref="300" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="150" max="32767" attributes="0"/>
+              <EmptySpace pref="104" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -77,14 +80,14 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JList" name="lstMembers">
+        <Component class="javax.swing.JList" name="lstCourses">
           <Properties>
             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
               <StringArray count="0"/>
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Member&gt;"/>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Course&gt;"/>
           </AuxValues>
         </Component>
       </SubComponents>
@@ -129,6 +132,11 @@
     <Component class="javax.swing.JCheckBox" name="chBoxPayment">
       <Properties>
         <Property name="text" type="java.lang.String" value="Payment:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblDateOfEnd">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Date of end:"/>
       </Properties>
     </Component>
   </SubComponents>
