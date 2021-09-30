@@ -45,6 +45,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         lblQuote.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblQuote.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gymQuote1.jpg"))); // NOI18N
