@@ -24,13 +24,13 @@ public class EmployeeController extends PersonController<Employee> {
     @Override
     protected void createController() throws GymException {
         super.createController(); //To change body of generated methods, choose Tools | Templates.
-        ibanController();
+        //ibanController();
     }
 
     @Override
     protected void updateController() throws GymException {
         super.updateController(); //To change body of generated methods, choose Tools | Templates.
-        ibanController();
+        //ibanController();
     }
     
     
@@ -40,12 +40,12 @@ public class EmployeeController extends PersonController<Employee> {
         
     }
 
-    private void ibanController() throws GymException {
+    /*private void ibanController() throws GymException {
         IBANValidator ibanValidator = new IBANValidator();
         ibanValidator.setValidator("HR", 21, "HR");
         if(!ibanValidator.isValid(entity.getIban())){
             throw new GymException("IBAN nije valjan");
         }
-    }
+    }*/
     
 }
