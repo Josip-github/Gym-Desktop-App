@@ -44,22 +44,26 @@
                   <Group type="102" attributes="0">
                       <Component id="btnAdd" min="-2" pref="73" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="btnUpdate" min="-2" pref="73" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="btnUpdate" min="-2" pref="88" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnDelete" min="-2" pref="73" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblEmail" max="32767" attributes="0"/>
-                          <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblEmail" max="32767" attributes="0"/>
+                              <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lblFirstname" min="-2" pref="76" max="-2" attributes="0"/>
+                          <Component id="lblLastname" min="-2" pref="76" max="-2" attributes="0"/>
+                          <Component id="lblOib" alignment="0" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="txtFirstname" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtLastname" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtOib" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtEmail" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="lblFirstname" min="-2" pref="76" max="-2" attributes="0"/>
-                      <Component id="lblLastname" min="-2" pref="76" max="-2" attributes="0"/>
-                      <Component id="lblOib" alignment="0" min="-2" pref="34" max="-2" attributes="0"/>
-                      <Component id="txtFirstname" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtLastname" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtOib" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtEmail" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnGenerateOib" min="-2" pref="116" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="48" max="32767" attributes="0"/>
@@ -82,8 +86,11 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="lblOib" min="-2" pref="22" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="txtOib" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtOib" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnGenerateOib" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Component id="lblEmail" min="-2" pref="27" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="txtEmail" min="-2" max="-2" attributes="0"/>
@@ -96,7 +103,7 @@
                   <Component id="btnUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnDelete" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="74" max="32767" attributes="0"/>
+              <EmptySpace pref="73" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -177,6 +184,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnGenerateOib">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Generate OIB"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGenerateOibActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
