@@ -280,6 +280,16 @@ public class WindowMembership extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         
+        if(membershipController.getEntity()==null){
+            return;
+        }
+        setValuesIntoEntity();
+        try {
+            membershipController.update();
+            readMemberships();
+        } catch (GymException ex) {
+            JOptionPane.showMessageDialog(getRootPane(), ex.getMessage());
+        }
         
     }//GEN-LAST:event_btnUpdateActionPerformed
 
