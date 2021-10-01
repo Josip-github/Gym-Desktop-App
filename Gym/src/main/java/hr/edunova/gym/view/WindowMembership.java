@@ -15,7 +15,6 @@ import hr.edunova.gym.util.Application;
 import hr.edunova.gym.util.GymException;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.logging.Level;
@@ -156,6 +155,11 @@ public class WindowMembership extends javax.swing.JFrame {
             }
         });
 
+        lstMemberships.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstMembershipsValueChanged(evt);
+            }
+        });
         jScrollPane2.setViewportView(lstMemberships);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -285,7 +289,7 @@ public class WindowMembership extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         
-        if(memberController.getEntity()==null){
+        if(membershipController.getEntity()==null){
             JOptionPane.showMessageDialog(getRootPane(), "First choose a member.");
             return;
         }
@@ -301,7 +305,7 @@ public class WindowMembership extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         
-        if(memberController.getEntity()==null){
+        if(membershipController.getEntity()==null){
             JOptionPane.showMessageDialog(getRootPane(), "First choose a member.");
             return;
         }
@@ -314,6 +318,22 @@ public class WindowMembership extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void lstMembershipsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstMembershipsValueChanged
+        if(evt.getValueIsAdjusting() || lstMemberships.getSelectedValue() == null){
+            return;
+        }
+        
+        membershipController.setEntity(lstMemberships.getSelectedValue());
+        var ms = membershipController.getEntity();
+        
+        //lstMembers.setSelectedValue(ms.getMember(), false);
+        cbCourses.setSelectedItem(ms.getCourse());
+        dpDateOfBegin.setDate(ms.getDateOfBegin().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        dpEndDate.setDate(ms.getDateOfEnd().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        txtPrice.setText(String.valueOf(ms.getPrice()));
+        chBoxPayment.setSelected(ms.getPayment());
+    }//GEN-LAST:event_lstMembershipsValueChanged
+
     private void readMembers(){
         DefaultListModel<Member> m = new DefaultListModel<>();
         memberController.read(txtSearch.getText()).forEach(mr -> m.addElement(mr));
@@ -321,6 +341,7 @@ public class WindowMembership extends javax.swing.JFrame {
     }
     
     private void setValuesIntoEntity(){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         var e = membershipController.getEntity();
         e.setCourse((Course)cbCourses.getSelectedItem());
         e.setMember(lstMembers.getSelectedValue());
