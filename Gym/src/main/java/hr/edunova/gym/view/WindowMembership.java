@@ -11,6 +11,7 @@ import hr.edunova.gym.controller.MembershipController;
 import hr.edunova.gym.model.Course;
 import hr.edunova.gym.model.Member;
 import hr.edunova.gym.util.Application;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 
 /**
@@ -36,6 +37,14 @@ public class WindowMembership extends javax.swing.JFrame {
     
     private void settings(){
         setTitle(Application.getTitle("Membership"));
+        DefaultComboBoxModel<Course> cbm = new DefaultComboBoxModel<>();
+        Course courseNull = new Course();
+        courseNull.setId(Long.valueOf(0));
+        courseNull.setName("Not chosen");
+        cbm.addElement(courseNull);
+        new CourseController().read().forEach(c -> cbm.addElement(c));
+        cbCourses.setModel(cbm);
+        
     }
     
     /*private void readCourses(){
@@ -78,8 +87,6 @@ public class WindowMembership extends javax.swing.JFrame {
         jScrollPane1.setViewportView(lstMembers);
 
         lblCourses.setText("Courses:");
-
-        cbCourses.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         lblDateOfBegin.setText("Date of begin:");
 
@@ -204,7 +211,7 @@ public class WindowMembership extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSearch;
-    private javax.swing.JComboBox<String> cbCourses;
+    private javax.swing.JComboBox<Course> cbCourses;
     private javax.swing.JCheckBox chBoxPayment;
     private com.github.lgooddatepicker.components.DatePicker dpDateOfBegin;
     private javax.swing.JScrollPane jScrollPane1;
