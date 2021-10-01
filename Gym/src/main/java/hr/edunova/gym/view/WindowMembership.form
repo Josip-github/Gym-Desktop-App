@@ -24,7 +24,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jScrollPane1" alignment="0" min="-2" pref="171" max="-2" attributes="0"/>
                   <Component id="lblCondition" min="-2" pref="183" max="-2" attributes="0"/>
@@ -33,40 +33,42 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                       <Component id="lblCourses" min="-2" pref="86" max="-2" attributes="0"/>
                       <Component id="cbCourses" max="32767" attributes="0"/>
-                      <Component id="dpDateOfBegin" pref="169" max="32767" attributes="0"/>
+                      <Component id="dpDateOfBegin" min="-2" pref="169" max="-2" attributes="0"/>
                   </Group>
                   <Component id="chBoxPayment" min="-2" pref="81" max="-2" attributes="0"/>
                   <Component id="txtPrice" min="-2" pref="127" max="-2" attributes="0"/>
-                  <Component id="datePicker1" min="-2" pref="169" max="-2" attributes="0"/>
-                  <Group type="102" attributes="0">
+                  <Component id="dpEndDate" min="-2" pref="169" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="lblPrice" min="-2" pref="77" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
-                      <Component id="jButton3" max="32767" attributes="0"/>
+                      <Component id="btnDelete" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="lblDateOfBegin" min="-2" pref="91" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="93" max="-2" attributes="0"/>
+                      <Component id="btnAdd" min="-2" pref="93" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="lblDateOfEnd" min="-2" pref="77" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="lblEndDate" min="-2" pref="90" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" pref="102" max="-2" attributes="0"/>
+                      <Component id="btnUpdate" min="-2" pref="102" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="82" max="32767" attributes="0"/>
+              <EmptySpace pref="69" max="32767" attributes="0"/>
+              <Component id="jScrollPane2" min="-2" pref="180" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblCourses" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                   <Component id="lblCondition" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -78,39 +80,44 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblDateOfBegin" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="jButton1" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="btnSearch" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="dpDateOfBegin" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="lblEndDate" max="32767" attributes="0"/>
-                              <Component id="lblDateOfEnd" pref="23" max="32767" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="lblDateOfBegin" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="btnAdd" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jButton2" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="btnSearch" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="datePicker1" min="-2" pref="32" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblPrice" min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="jButton3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="dpDateOfBegin" min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="lblEndDate" max="32767" attributes="0"/>
+                                      <Component id="lblDateOfEnd" min="-2" pref="23" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="btnUpdate" min="-2" pref="32" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="dpEndDate" min="-2" pref="32" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblPrice" min="-2" pref="23" max="-2" attributes="0"/>
+                                  <Component id="btnDelete" min="-2" pref="34" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtPrice" min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="chBoxPayment" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jScrollPane1" min="-2" pref="259" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtPrice" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="chBoxPayment" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane1" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" min="-2" pref="234" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="60" max="32767" attributes="0"/>
+              <EmptySpace pref="74" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -197,22 +204,47 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblEndDate">
     </Component>
-    <Component class="com.github.lgooddatepicker.components.DatePicker" name="datePicker1">
+    <Component class="com.github.lgooddatepicker.components.DatePicker" name="dpEndDate">
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnAdd">
       <Properties>
         <Property name="text" type="java.lang.String" value="Add"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="btnUpdate">
       <Properties>
         <Property name="text" type="java.lang.String" value="Update"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="btnDelete">
       <Properties>
         <Property name="text" type="java.lang.String" value="Delete"/>
       </Properties>
     </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JList" name="lstMemberships">
+          <Properties>
+            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Membership&gt;"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>
