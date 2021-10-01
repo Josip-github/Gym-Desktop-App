@@ -32,39 +32,41 @@
                   <Component id="txtSearch" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="chBoxPayment" min="-2" pref="81" max="-2" attributes="0"/>
+                  <Component id="txtPrice" min="-2" pref="127" max="-2" attributes="0"/>
+                  <Component id="dpEndDate" min="-2" pref="169" max="-2" attributes="0"/>
+                  <Component id="lblPrice" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
+                  <Component id="lblDateOfBegin" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="lblDateOfEnd" min="-2" pref="77" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="lblEndDate" min="-2" pref="90" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                       <Component id="lblCourses" min="-2" pref="86" max="-2" attributes="0"/>
                       <Component id="cbCourses" max="32767" attributes="0"/>
                       <Component id="dpDateOfBegin" min="-2" pref="169" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="chBoxPayment" min="-2" pref="81" max="-2" attributes="0"/>
-                  <Component id="txtPrice" min="-2" pref="127" max="-2" attributes="0"/>
-                  <Component id="dpEndDate" min="-2" pref="169" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="lblPrice" min="-2" pref="77" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
-                      <Component id="btnDelete" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="lblDateOfBegin" min="-2" pref="91" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
-                      <Component id="btnAdd" min="-2" pref="93" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="lblDateOfEnd" min="-2" pref="77" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="lblEndDate" min="-2" pref="90" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                      <Component id="btnUpdate" min="-2" pref="102" max="-2" attributes="0"/>
-                  </Group>
               </Group>
-              <EmptySpace pref="68" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane2" min="-2" pref="180" max="-2" attributes="0"/>
-                  <Component id="lblMemberships" min="-2" pref="122" max="-2" attributes="0"/>
+                  <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="btnAdd" min="-2" pref="93" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnUpdate" min="-2" pref="102" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnDelete" min="-2" pref="102" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lblMemberships" min="-2" pref="122" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="47" max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -80,42 +82,36 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="cbCourses" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="txtSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAdd" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="btnUpdate" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="btnDelete" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="lblDateOfBegin" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="btnAdd" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="lblDateOfBegin" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="btnSearch" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="259" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="lblMemberships" max="32767" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="lblMemberships" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="dpDateOfBegin" min="-2" pref="30" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="lblEndDate" max="32767" attributes="0"/>
-                                      <Component id="lblDateOfEnd" min="-2" pref="23" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="btnUpdate" min="-2" pref="32" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lblEndDate" max="32767" attributes="0"/>
+                                  <Component id="lblDateOfEnd" min="-2" pref="23" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Component id="dpEndDate" min="-2" pref="32" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblPrice" min="-2" pref="23" max="-2" attributes="0"/>
-                                  <Component id="btnDelete" min="-2" pref="34" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblPrice" min="-2" pref="23" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                               <Component id="txtPrice" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane2" min="-2" pref="234" max="-2" attributes="0"/>
@@ -124,7 +120,7 @@
                       <Component id="chBoxPayment" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="74" max="32767" attributes="0"/>
+              <EmptySpace pref="79" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
