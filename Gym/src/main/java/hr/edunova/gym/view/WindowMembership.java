@@ -150,6 +150,11 @@ public class WindowMembership extends javax.swing.JFrame {
         });
 
         btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         jScrollPane2.setViewportView(lstMemberships);
 
@@ -280,7 +285,8 @@ public class WindowMembership extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         
-        if(membershipController.getEntity()==null){
+        if(memberController.getEntity()==null){
+            JOptionPane.showMessageDialog(getRootPane(), "First choose a member.");
             return;
         }
         setValuesIntoEntity();
@@ -292,6 +298,21 @@ public class WindowMembership extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        
+        if(memberController.getEntity()==null){
+            JOptionPane.showMessageDialog(getRootPane(), "First choose a member.");
+            return;
+        }
+        setValuesIntoEntity();
+        try {
+            membershipController.delete();
+            readMemberships();
+        } catch (GymException ex) {
+            JOptionPane.showMessageDialog(getRootPane(), ex.getMessage());
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void readMembers(){
         DefaultListModel<Member> m = new DefaultListModel<>();
