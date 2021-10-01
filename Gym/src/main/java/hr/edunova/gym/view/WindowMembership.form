@@ -27,27 +27,39 @@
               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jScrollPane1" alignment="0" min="-2" pref="171" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="txtSearch" min="-2" pref="90" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnSearch" min="-2" pref="73" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="lblCondition" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
+                  <Component id="lblCondition" min="-2" pref="183" max="-2" attributes="0"/>
+                  <Component id="btnSearch" min="-2" pref="83" max="-2" attributes="0"/>
+                  <Component id="txtSearch" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="lblCourses" min="-2" pref="86" max="-2" attributes="0"/>
                       <Component id="cbCourses" max="32767" attributes="0"/>
                       <Component id="dpDateOfBegin" pref="169" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="lblDateOfBegin" min="-2" pref="91" max="-2" attributes="0"/>
-                  <Component id="lblPrice" min="-2" pref="77" max="-2" attributes="0"/>
                   <Component id="chBoxPayment" min="-2" pref="81" max="-2" attributes="0"/>
                   <Component id="txtPrice" min="-2" pref="127" max="-2" attributes="0"/>
-                  <Component id="lblDateOfEnd" min="-2" pref="113" max="-2" attributes="0"/>
+                  <Component id="datePicker1" min="-2" pref="169" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="lblPrice" min="-2" pref="77" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
+                      <Component id="jButton3" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="lblDateOfBegin" min="-2" pref="91" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" pref="93" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="lblDateOfEnd" min="-2" pref="77" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="lblEndDate" min="-2" pref="90" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                      <Component id="jButton2" min="-2" pref="102" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="334" max="32767" attributes="0"/>
+              <EmptySpace pref="82" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -60,31 +72,45 @@
                   <Component id="lblCondition" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="cbCourses" min="-2" pref="28" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtSearch" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnSearch" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="cbCourses" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                  <Component id="txtSearch" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblDateOfBegin" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="jButton1" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="btnSearch" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="lblDateOfBegin" min="-2" pref="20" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="dpDateOfBegin" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="lblDateOfEnd" min="-2" pref="23" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="lblEndDate" max="32767" attributes="0"/>
+                              <Component id="lblDateOfEnd" pref="23" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="jButton2" min="-2" pref="32" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="lblPrice" min="-2" pref="23" max="-2" attributes="0"/>
+                      <Component id="datePicker1" min="-2" pref="32" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblPrice" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="jButton3" min="-2" pref="34" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="txtPrice" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="chBoxPayment" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane1" min="-2" pref="267" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="104" max="32767" attributes="0"/>
+              <EmptySpace pref="60" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -167,6 +193,25 @@
     <Component class="javax.swing.JLabel" name="lblCondition">
       <Properties>
         <Property name="text" type="java.lang.String" value="Condition(name or surname):"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblEndDate">
+    </Component>
+    <Component class="com.github.lgooddatepicker.components.DatePicker" name="datePicker1">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Add"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Update"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Delete"/>
       </Properties>
     </Component>
   </SubComponents>
