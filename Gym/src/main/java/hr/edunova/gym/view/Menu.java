@@ -7,19 +7,25 @@ package hr.edunova.gym.view;
 
 import hr.edunova.gym.model.Employee;
 import hr.edunova.gym.util.Application;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
  * @author Vlasnik
  */
-public class Menu extends javax.swing.JFrame {
+public class Menu extends javax.swing.JFrame implements Runnable {
 
+    int hour, minute;
     /**
      * Creates new form Menu
      */
     public Menu() {
         initComponents();
         settings();
+        Thread t = new Thread(this);
+        t.start();
     }
     
     private void settings(){
@@ -36,6 +42,8 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         lblQuote = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        lblTime = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -49,6 +57,12 @@ public class Menu extends javax.swing.JFrame {
 
         lblQuote.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblQuote.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gymQuote1.jpg"))); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Time:");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        lblTime.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         jMenu1.setText("Programs");
 
@@ -101,16 +115,27 @@ public class Menu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(119, 119, 119)
-                .addComponent(lblQuote)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblQuote))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblTime, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(lblTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(lblQuote)
-                .addGap(33, 33, 33))
+                .addContainerGap())
         );
 
         pack();
@@ -147,6 +172,7 @@ public class Menu extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
@@ -155,5 +181,23 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JLabel lblQuote;
+    private javax.swing.JLabel lblTime;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void run() {
+        
+        while(true){
+            Calendar c = Calendar.getInstance();
+            hour = c.get(Calendar.HOUR_OF_DAY);
+            minute = c.get(Calendar.MINUTE);
+            
+            SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy  HH:mm");
+            Date time = c.getTime();
+            String time24 = sdf.format(time);
+            
+            lblTime.setText(time24);
+        }
+                
+    }
 }
