@@ -192,7 +192,7 @@ public class Menu extends javax.swing.JFrame implements Runnable {
             hour = c.get(Calendar.HOUR_OF_DAY);
             minute = c.get(Calendar.MINUTE);
             
-            SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy  HH:mm");
+            SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy - HH:mm");
             Date time = c.getTime();
             String time24 = sdf.format(time);
             

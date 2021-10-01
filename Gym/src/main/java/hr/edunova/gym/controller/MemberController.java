@@ -19,6 +19,15 @@ public class MemberController extends PersonController<Member> {
     public List<Member> read() {
         return session.createQuery("from Member").list();
     }
+    
+    public List<Member> read (String condition){
+        return session.createQuery("from Member m"
+                + " where concat(m.firstname,' ', m.lastname) "
+                + " like :condition order by m.lastname, m.firstname")
+                .setParameter("condition", "%" + condition + "%")
+                .setMaxResults(20)
+                .list();
+    }
 
     @Override
     protected void deleteController() throws GymException {

@@ -6,6 +6,8 @@
 package hr.edunova.gym.view;
 
 import hr.edunova.gym.controller.CourseController;
+import hr.edunova.gym.controller.MemberController;
+import hr.edunova.gym.controller.MembershipController;
 import hr.edunova.gym.model.Course;
 import hr.edunova.gym.model.Member;
 import hr.edunova.gym.util.Application;
@@ -18,26 +20,30 @@ import javax.swing.DefaultListModel;
 public class WindowMembership extends javax.swing.JFrame {
 
     private CourseController courseController;
+    private MemberController memberController;
+    private MembershipController membershipController;
     /**
      * Creates new form WindowMembership
      */
     public WindowMembership() {
         initComponents();
         courseController = new CourseController();
+        memberController = new MemberController();
+        membershipController = new MembershipController();
         settings();
-        readCourses();
+        //readCourses();
     }
     
     private void settings(){
         setTitle(Application.getTitle("Membership"));
     }
     
-    private void readCourses(){
+    /*private void readCourses(){
         DefaultListModel<Course> m = new DefaultListModel<>();
         courseController.read().forEach(c -> {m.addElement(c);});
-        lstCourses.setModel(m);
+        lstMembers.setModel(m);
         
-    }
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,23 +55,31 @@ public class WindowMembership extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        lstCourses = new javax.swing.JList<>();
-        lblMembers = new javax.swing.JLabel();
-        cbMembers = new javax.swing.JComboBox<>();
+        lstMembers = new javax.swing.JList<>();
+        lblCourses = new javax.swing.JLabel();
+        cbCourses = new javax.swing.JComboBox<>();
         dpDateOfBegin = new com.github.lgooddatepicker.components.DatePicker();
         lblDateOfBegin = new javax.swing.JLabel();
         lblPrice = new javax.swing.JLabel();
         txtPrice = new javax.swing.JTextField();
         chBoxPayment = new javax.swing.JCheckBox();
         lblDateOfEnd = new javax.swing.JLabel();
+        txtSearch = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
+        lblCondition = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jScrollPane1.setViewportView(lstCourses);
+        lstMembers.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstMembersValueChanged(evt);
+            }
+        });
+        jScrollPane1.setViewportView(lstMembers);
 
-        lblMembers.setText("Members:");
+        lblCourses.setText("Courses:");
 
-        cbMembers.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbCourses.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         lblDateOfBegin.setText("Date of begin:");
 
@@ -81,18 +95,33 @@ public class WindowMembership extends javax.swing.JFrame {
 
         lblDateOfEnd.setText("Date of end:");
 
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        lblCondition.setText("Condition(name or surname):");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(55, 55, 55)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCondition, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lblMembers, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cbMembers, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblCourses, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbCourses, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(dpDateOfBegin, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE))
                     .addComponent(lblDateOfBegin, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -105,13 +134,18 @@ public class WindowMembership extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(70, 70, 70)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCourses, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCondition))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbCourses, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSearch)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblMembers, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cbMembers, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addComponent(lblDateOfBegin, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(dpDateOfBegin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -122,7 +156,8 @@ public class WindowMembership extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(chBoxPayment)))
+                        .addComponent(chBoxPayment))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(104, Short.MAX_VALUE))
         );
 
@@ -133,51 +168,53 @@ public class WindowMembership extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPriceActionPerformed
 
+    private void lstMembersValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstMembersValueChanged
+        
+        if(lstMembers.getValueIsAdjusting() || lstMembers.getSelectedValue()==null){
+            return;
+        }
+        
+        memberController.setEntity(lstMembers.getSelectedValue());
+        //courseController.setEntity(lstMembers.getSelectedValue());
+        var mc = memberController.getEntity();
+        
+        memberController.setEntity((Member)cbCourses.getSelectedItem());
+        var m = membershipController.getEntity();
+        
+        
+        cbCourses.setSelectedItem(m.getMember());
+        
+        
+        
+    }//GEN-LAST:event_lstMembersValueChanged
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        readMembers();
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void readMembers(){
+        DefaultListModel<Member> m = new DefaultListModel<>();
+        memberController.read(txtSearch.getText()).forEach(mr -> m.addElement(mr));
+        lstMembers.setModel(m);
+    }
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(WindowMembership.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(WindowMembership.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(WindowMembership.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(WindowMembership.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new WindowMembership().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cbMembers;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JComboBox<String> cbCourses;
     private javax.swing.JCheckBox chBoxPayment;
     private com.github.lgooddatepicker.components.DatePicker dpDateOfBegin;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCondition;
+    private javax.swing.JLabel lblCourses;
     private javax.swing.JLabel lblDateOfBegin;
     private javax.swing.JLabel lblDateOfEnd;
-    private javax.swing.JLabel lblMembers;
     private javax.swing.JLabel lblPrice;
-    private javax.swing.JList<Course> lstCourses;
+    private javax.swing.JList<Member> lstMembers;
     private javax.swing.JTextField txtPrice;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }
