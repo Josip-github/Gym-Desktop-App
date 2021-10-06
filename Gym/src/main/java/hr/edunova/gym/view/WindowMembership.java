@@ -212,7 +212,7 @@ public class WindowMembership extends javax.swing.JFrame {
                                 .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lblMemberships, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSearchForMembership, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 47, Short.MAX_VALUE)))
+                        .addGap(0, 84, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -260,7 +260,8 @@ public class WindowMembership extends javax.swing.JFrame {
                                 .addComponent(chBoxPayment))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(34, 34, 34)
-                                .addComponent(btnSearchForMembership))))))
+                                .addComponent(btnSearchForMembership)))))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         pack();
@@ -292,6 +293,14 @@ public class WindowMembership extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         readMembers();
+        
+        
+        /*if(lstMembers.getValueIsAdjusting()){
+            JOptionPane.showMessageDialog(getRootPane(), 
+                    "There is no member with given name/surname "
+                            + "\nAdvice: Go to \"Members\" window and create that member first,"
+                            + "\nthen you'll be able to manage him here.");
+        }*/
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
@@ -356,12 +365,18 @@ public class WindowMembership extends javax.swing.JFrame {
 
     private void btnSearchForMembershipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchForMembershipActionPerformed
         
-        new SearchForParticularMembership().setVisible(true);
+        new WindowSearchForParticularMembership().setVisible(true);
     }//GEN-LAST:event_btnSearchForMembershipActionPerformed
 
     private void readMembers(){
         DefaultListModel<Member> m = new DefaultListModel<>();
         memberController.read(txtSearch.getText()).forEach(mr -> m.addElement(mr));
+        if(m.isEmpty()){
+             JOptionPane.showMessageDialog(getRootPane(), 
+                    "There is no member with given name/surname "
+                            + "\nAdvice: Go to \"Members\" window and create that member first,"
+                            + "\nthen you'll be able to manage him here.");
+        }
         lstMembers.setModel(m);
     }
     

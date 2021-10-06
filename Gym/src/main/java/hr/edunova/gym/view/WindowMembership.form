@@ -64,7 +64,7 @@
                           <Component id="lblMemberships" min="-2" pref="122" max="-2" attributes="0"/>
                           <Component id="btnSearchForMembership" alignment="0" min="-2" pref="245" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="47" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="84" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -129,6 +129,7 @@
                       </Group>
                   </Group>
               </Group>
+              <EmptySpace pref="91" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

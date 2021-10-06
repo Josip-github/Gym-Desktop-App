@@ -5,19 +5,23 @@
  */
 package hr.edunova.gym.view;
 
+import hr.edunova.gym.controller.MemberController;
+import hr.edunova.gym.model.Member;
 import hr.edunova.gym.model.Membership;
+import javax.swing.DefaultListModel;
 
 /**
  *
  * @author Vlasnik
  */
-public class SearchForParticularMembership extends javax.swing.JFrame {
+public class WindowSearchForParticularMembership extends javax.swing.JFrame {
 
+    private MemberController memberController;
     
     /**
      * Creates new form SearchForParticularMembership
      */
-    public SearchForParticularMembership() {
+    public WindowSearchForParticularMembership() {
         initComponents();
     }
 
@@ -34,15 +38,20 @@ public class SearchForParticularMembership extends javax.swing.JFrame {
         lblCondition = new javax.swing.JLabel();
         btnSearch = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        lstMemberships = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblCondition.setText("Condition(name or surname):");
 
         btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(lstMemberships);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,6 +85,16 @@ public class SearchForParticularMembership extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        
+        readMembers();
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void readMembers(){
+        DefaultListModel<Member> m = new DefaultListModel<>();
+        memberController.read(txtSearch.getText()).forEach(mr -> m.addElement(mr));
+        lstMemberships.setModel(m);
+    }
     /**
      * @param args the command line arguments
      */
@@ -83,9 +102,9 @@ public class SearchForParticularMembership extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSearch;
-    private javax.swing.JList<Membership> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCondition;
+    private javax.swing.JList<Member> lstMemberships;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }
