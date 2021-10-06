@@ -372,10 +372,20 @@ public class WindowMembership extends javax.swing.JFrame {
         DefaultListModel<Member> m = new DefaultListModel<>();
         memberController.read(txtSearch.getText()).forEach(mr -> m.addElement(mr));
         if(m.isEmpty()){
-             JOptionPane.showMessageDialog(getRootPane(), 
+            
+            if(JOptionPane.showConfirmDialog(rootPane, 
+                    "Member does not exist, would you like to create one?", 
+                    "?", JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
+                new WindowMembers().setVisible(true);
+                
+            }
+            
+            /* JOptionPane.showMessageDialog(getRootPane(), 
                     "There is no member with given name/surname "
                             + "\nAdvice: Go to \"Members\" window and create that member first,"
-                            + "\nthen you'll be able to manage him here.");
+                            + "\nthen you'll be able to manage him here.");*/
+             
+            
         }
         lstMembers.setModel(m);
     }
