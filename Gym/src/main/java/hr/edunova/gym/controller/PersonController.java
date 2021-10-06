@@ -102,6 +102,10 @@ public abstract class PersonController<T extends Person> extends Controller<T> {
     }
 
     private void emailController() throws GymException {
+        
+       if(entity.getEmail().equals(null) || entity.getEmail().trim().length()==0){
+           throw new GymException("Email is required! \nPlease type the email!");
+       }
        
        if(!(entity.getEmail().contains("@"))){
            throw new GymException("Email has to contain character @");
