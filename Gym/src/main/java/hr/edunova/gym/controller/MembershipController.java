@@ -7,6 +7,7 @@ package hr.edunova.gym.controller;
 
 import hr.edunova.gym.model.Membership;
 import hr.edunova.gym.util.GymException;
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -22,7 +23,7 @@ public class MembershipController extends Controller<Membership> {
 
     @Override
     protected void createController() throws GymException {
-        
+        priceController();
     }
 
     @Override
@@ -35,4 +36,14 @@ public class MembershipController extends Controller<Membership> {
         
     }
     
+    private void priceController() throws GymException{
+        
+        if(entity.getPrice().equals(null)){
+            throw new GymException("There has to be a price for a course");
+        }
+        
+        if(entity.getPrice().compareTo(BigDecimal.ZERO) < 0){
+            throw new GymException("Price can't be less than zero.");
+        }
+    }
 }
