@@ -62,7 +62,10 @@
                               <Component id="btnDelete" min="-2" pref="102" max="-2" attributes="0"/>
                           </Group>
                           <Component id="lblMemberships" min="-2" pref="122" max="-2" attributes="0"/>
-                          <Component id="btnSearchForMembership" alignment="0" min="-2" pref="245" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="btnShowAll" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnSearchForMembership" alignment="0" pref="245" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace min="0" pref="84" max="32767" attributes="0"/>
                   </Group>
@@ -129,7 +132,9 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="91" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnShowAll" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="50" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -275,6 +280,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchForMembershipActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnShowAll">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Show all memberships"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnShowAllActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -101,6 +101,7 @@ public class WindowMembership extends javax.swing.JFrame {
         lstMemberships = new javax.swing.JList<>();
         lblMemberships = new javax.swing.JLabel();
         btnSearchForMembership = new javax.swing.JButton();
+        btnShowAll = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -173,6 +174,13 @@ public class WindowMembership extends javax.swing.JFrame {
             }
         });
 
+        btnShowAll.setText("Show all memberships");
+        btnShowAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowAllActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -211,7 +219,9 @@ public class WindowMembership extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lblMemberships, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSearchForMembership, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btnShowAll, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnSearchForMembership, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)))
                         .addGap(0, 84, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -261,7 +271,9 @@ public class WindowMembership extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(34, 34, 34)
                                 .addComponent(btnSearchForMembership)))))
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnShowAll)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pack();
@@ -368,6 +380,11 @@ public class WindowMembership extends javax.swing.JFrame {
         new WindowSearchForParticularMembership().setVisible(true);
     }//GEN-LAST:event_btnSearchForMembershipActionPerformed
 
+    private void btnShowAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowAllActionPerformed
+        
+        new JTableClassTest().setVisible(true);
+    }//GEN-LAST:event_btnShowAllActionPerformed
+
     private void readMembers(){
         DefaultListModel<Member> m = new DefaultListModel<>();
         memberController.read(txtSearch.getText()).forEach(mr -> m.addElement(mr));
@@ -423,6 +440,7 @@ public class WindowMembership extends javax.swing.JFrame {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnSearchForMembership;
+    private javax.swing.JButton btnShowAll;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<Course> cbCourses;
     private javax.swing.JCheckBox chBoxPayment;
