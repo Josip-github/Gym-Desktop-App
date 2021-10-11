@@ -39,7 +39,9 @@ public class JTableClassTest extends javax.swing.JFrame {
     private void readMemberships(){
         
         List<Membership> mships = membershipController.read();
-        DefaultTableModel tblModel = new DefaultTableModel(tblMemberships.getColumnCount(), mships.size());
+        //DefaultTableModel tblModel = new DefaultTableModel();
+        
+        DefaultTableModel tblModel = (DefaultTableModel)tblMemberships.getModel();
         
         for(Membership m : mships){
             String row[] = {
@@ -56,8 +58,8 @@ public class JTableClassTest extends javax.swing.JFrame {
             tblModel.addRow(row);
         }
         
-        tblMemberships.setModel(tblModel);
-        
+        //tblMemberships.setModel(tblModel);
+        tblMemberships.repaint();
         
             
            
