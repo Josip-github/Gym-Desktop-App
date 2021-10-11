@@ -47,7 +47,7 @@ public class Course extends Instance{
 
     @Override
     public String toString() {
-        return "Course: " + name;
+        return " " + name;
     }
 
     
