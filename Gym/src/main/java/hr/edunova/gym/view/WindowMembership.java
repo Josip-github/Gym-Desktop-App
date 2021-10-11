@@ -408,16 +408,39 @@ public class WindowMembership extends javax.swing.JFrame {
     }
     
     private void setValuesIntoEntity(){
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        
         var e = membershipController.getEntity();
-        e.setCourse((Course)cbCourses.getSelectedItem());
-        e.setMember(lstMembers.getSelectedValue());
-        e.setDateOfBegin(Date.from(
+        
+        try{
+            e.setCourse((Course)cbCourses.getSelectedItem());
+        } catch(Exception ex){
+            JOptionPane.showMessageDialog(getRootPane(), "You have to choose a course!");
+            return;
+        }
+        
+        try{
+            e.setMember(lstMembers.getSelectedValue());
+        } catch(Exception ex){
+            JOptionPane.showMessageDialog(getRootPane(), "You have to choose a member!");
+            return;
+        }
+        
+        try{
+            
+            e.setDateOfBegin(Date.from(
                 dpDateOfBegin.getDate().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()
-        ));
-        e.setDateOfEnd(Date.from(
+            ));
+            e.setDateOfEnd(Date.from(
                 dpEndDate.getDate().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()
         ));
+        
+        } catch(Exception ex){
+            JOptionPane.showMessageDialog(getRootPane(), "You have to choose dates!");
+            return;
+        }
+            
+            
+        
         
         try{
         e.setPrice(new BigDecimal(txtPrice.getText()));    

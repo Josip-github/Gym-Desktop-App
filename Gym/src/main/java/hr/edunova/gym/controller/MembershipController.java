@@ -24,6 +24,8 @@ public class MembershipController extends Controller<Membership> {
     @Override
     protected void createController() throws GymException {
         priceController();
+        courseChooseController();
+        dateController();
     }
 
     @Override
@@ -44,6 +46,18 @@ public class MembershipController extends Controller<Membership> {
         
         if(entity.getPrice().compareTo(BigDecimal.ZERO) < 0){
             throw new GymException("Price can't be less than zero.");
+        }
+    }
+    
+    private void courseChooseController() throws GymException {
+        if(entity.getCourse().getId()==0){
+            throw new GymException("You have to choose a course");
+        }
+    }
+    
+    private void dateController() throws GymException{
+        if(entity.getDateOfBegin() == null || entity.getDateOfEnd() == null){
+            throw new GymException("You have to choose dates");
         }
     }
 }
