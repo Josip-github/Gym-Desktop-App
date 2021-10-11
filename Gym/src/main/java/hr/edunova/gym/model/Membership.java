@@ -31,7 +31,7 @@ public class Membership extends Instance {
     private BigDecimal price;
     
     private Boolean payment;
-
+    
     public Course getCourse() {
         return course;
     }

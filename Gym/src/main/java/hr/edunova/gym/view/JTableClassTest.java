@@ -9,6 +9,7 @@ import hr.edunova.gym.controller.CourseController;
 import hr.edunova.gym.controller.MemberController;
 import hr.edunova.gym.controller.MembershipController;
 import hr.edunova.gym.model.Membership;
+import java.text.SimpleDateFormat;
 import java.util.Iterator;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -22,6 +23,7 @@ public class JTableClassTest extends javax.swing.JFrame {
     private MembershipController membershipController;
     private CourseController courseController;
     private MemberController memberController;
+    SimpleDateFormat sdf;
     /**
      * Creates new form JTableClassTest
      */
@@ -30,6 +32,7 @@ public class JTableClassTest extends javax.swing.JFrame {
         membershipController = new MembershipController();
         courseController = new CourseController();
         memberController = new MemberController();
+        sdf = new SimpleDateFormat("dd.MM.yyyy");
         readMemberships();
     }
     
@@ -43,8 +46,10 @@ public class JTableClassTest extends javax.swing.JFrame {
                 m.getId().toString(),
                 m.getCourse().toString(),
                 m.getMember().getFirstname() + " " + m.getMember().getLastname(),
-                m.getDateOfBegin().toString(),
-                m.getDateOfEnd().toString(),
+                sdf.format(m.getDateOfBegin()).toString(),
+                //m.getDateOfBegin().toString(),
+                sdf.format(m.getDateOfEnd()).toString(),
+                //m.getDateOfEnd().toString(),
                 m.getPrice().toString(),
                 m.getPayment().toString()
             };
