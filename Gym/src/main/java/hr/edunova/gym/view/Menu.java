@@ -7,6 +7,7 @@ package hr.edunova.gym.view;
 
 import hr.edunova.gym.model.Employee;
 import hr.edunova.gym.util.Application;
+import hr.edunova.gym.util.InitialInsert;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -44,6 +45,7 @@ public class Menu extends javax.swing.JFrame implements Runnable {
         lblQuote = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
+        btnInitialInsert = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -63,6 +65,13 @@ public class Menu extends javax.swing.JFrame implements Runnable {
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         lblTime.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        btnInitialInsert.setText("Initial insert");
+        btnInitialInsert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInitialInsertActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Programs");
 
@@ -115,15 +124,16 @@ public class Menu extends javax.swing.JFrame implements Runnable {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(lblQuote))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(157, 157, 157)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(lblTime, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblTime, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnInitialInsert)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblQuote)))
                 .addContainerGap(121, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -136,6 +146,10 @@ public class Menu extends javax.swing.JFrame implements Runnable {
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(lblQuote)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnInitialInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91))
         );
 
         pack();
@@ -166,12 +180,17 @@ public class Menu extends javax.swing.JFrame implements Runnable {
         new WindowMembership().setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
+    private void btnInitialInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInitialInsertActionPerformed
+        InitialInsert.insertDataIntoDatabase();
+    }//GEN-LAST:event_btnInitialInsertActionPerformed
+
     /**
      * @param args the command line arguments
      */
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnInitialInsert;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
