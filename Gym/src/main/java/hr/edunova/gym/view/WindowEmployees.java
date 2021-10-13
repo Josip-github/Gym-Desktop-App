@@ -208,6 +208,11 @@ public class WindowEmployees extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         
+        if(employeeController.getEntity() == null){
+            JOptionPane.showMessageDialog(getRootPane(), "First you have to choose employee you want to update.");
+            return;
+        }
+        
         setValuesIntoEntity();
         try {
             employeeController.create();

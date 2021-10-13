@@ -177,6 +177,11 @@ public class WindowCourses extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         
+        if(courseController.getEntity() == null){
+            JOptionPane.showMessageDialog(getRootPane(), "First you have to choose course you want to update.");
+            return;
+        }
+        
         setValuesIntoEntity();
         try {
             courseController.update();
@@ -187,6 +192,11 @@ public class WindowCourses extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        
+        if(courseController.getEntity() == null){
+            JOptionPane.showMessageDialog(getRootPane(), "First you have to choose course you want to delete.");
+            return;
+        }
         
         setValuesIntoEntity();
         try {
