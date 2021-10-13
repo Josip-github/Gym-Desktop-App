@@ -40,7 +40,7 @@ public class MembershipController extends Controller<Membership> {
     
     private void priceController() throws GymException{
         
-        if(entity.getPrice().equals(null)){
+        if(entity.getPrice() == null){
             throw new GymException("There has to be a price for a course");
         }
         
