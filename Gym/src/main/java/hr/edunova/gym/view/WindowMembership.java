@@ -49,6 +49,7 @@ public class WindowMembership extends javax.swing.JFrame {
     }
     
     private void readMemberships(){
+        List<Member> members = memberController.read();
         List<Membership> mships = membershipController.read();
          
         DefaultTableModel tblModel = (DefaultTableModel)tblMemberships.getModel();
@@ -57,6 +58,7 @@ public class WindowMembership extends javax.swing.JFrame {
             String row[] = {
                 m.getId().toString(),
                 m.getCourse().toString(),
+                //"Member missing",
                 m.getMember().getFirstname() + " " + m.getMember().getLastname(),
                 sdf.format(m.getDateOfBegin()).toString(),
                 //m.getDateOfBegin().toString(),
