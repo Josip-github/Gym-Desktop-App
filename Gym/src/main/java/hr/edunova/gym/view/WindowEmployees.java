@@ -219,6 +219,11 @@ public class WindowEmployees extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         
+        if(employeeController.getEntity() == null){
+            JOptionPane.showMessageDialog(getRootPane(), "First you have to choose employee you want to delete.");
+            return;
+        }
+        
         setValuesIntoEntity();
         try {
             employeeController.delete();

@@ -31,7 +31,10 @@ public class MembershipController extends Controller<Membership> {
 
     @Override
     protected void updateController() throws GymException {
-        
+        priceController();
+        courseChooseController();
+        dateController();
+        memberChooseController();
     }
 
     @Override

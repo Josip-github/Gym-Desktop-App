@@ -206,6 +206,11 @@ public class WindowMembers extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         
+        if(memberController.getEntity() == null){
+            JOptionPane.showMessageDialog(getRootPane(), "First you have to choose a member you want do update.");
+            return;
+        }
+        
         setValuesIntoEntity();
         try {
             memberController.create();
@@ -216,6 +221,11 @@ public class WindowMembers extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        
+        if(memberController.getEntity() == null){
+            JOptionPane.showMessageDialog(getRootPane(), "First you have to choose a member you want do delete.");
+            return;
+        }
         
         setValuesIntoEntity();
         try {

@@ -29,8 +29,6 @@ public abstract class PersonController<T extends Person> extends Controller<T> {
         lastnameController();
         emailController();
     }
-    
-    
 
     private void oibController() throws GymException {
        if(!oibCorrect(entity.getOib())){
