@@ -80,7 +80,6 @@ public class Membership extends Instance {
         this.price = price;
     }
     
-    
 
     @Override
     public String toString() {
