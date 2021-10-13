@@ -282,12 +282,6 @@ public class WindowMembership extends javax.swing.JFrame {
         
         memberController.setEntity(lstMembers.getSelectedValue());
         var m = memberController.getEntity();
-        
-        
-     
-        
-        
-        
     }//GEN-LAST:event_lstMembersValueChanged
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
@@ -346,7 +340,23 @@ public class WindowMembership extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void lstMembershipsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstMembershipsValueChanged
-        // TODO add your handling code here:
+        
+        if(evt.getValueIsAdjusting() || lstMemberships.getSelectedValue() == null){
+            return;
+        }
+        
+        membershipController.setEntity(lstMemberships.getSelectedValue());
+        var ms = membershipController.getEntity();
+        DefaultListModel<Member> m = new DefaultListModel<>();
+        m.addElement(ms.getMember());
+        lstMembers.setModel(m);
+        //txtSearch.setText(ms.getMember().getLastname());
+        cbCourses.setSelectedItem(ms.getCourse());
+        txtPrice.setText(ms.getPrice().toString());
+        dpDateOfBegin.setDate(ms.getDateOfBegin().toInstant()
+                                .atZone(ZoneId.systemDefault()).toLocalDate());
+        dpEndDate.setDate(ms.getDateOfEnd().toInstant()
+                                .atZone(ZoneId.systemDefault()).toLocalDate());
     }//GEN-LAST:event_lstMembershipsValueChanged
 
     private void btnShowAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowAllActionPerformed
@@ -364,7 +374,6 @@ public class WindowMembership extends javax.swing.JFrame {
                 new WindowMembers().setVisible(true);
                 
             }
-             
         }
         lstMembers.setModel(m);
     }
