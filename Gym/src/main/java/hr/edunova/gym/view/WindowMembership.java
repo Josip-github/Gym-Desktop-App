@@ -385,15 +385,13 @@ public class WindowMembership extends javax.swing.JFrame {
         try{
             e.setCourse((Course)cbCourses.getSelectedItem());
         } catch(Exception ex){
-            JOptionPane.showMessageDialog(getRootPane(), "You have to choose a course!");
-            return;
+            e.setCourse(null);
         }
         
         try{
             e.setMember(lstMembers.getSelectedValue());
         } catch(Exception ex){
             JOptionPane.showMessageDialog(getRootPane(), "You have to choose a member!");
-            return;
         }
         
         try{
@@ -406,16 +404,15 @@ public class WindowMembership extends javax.swing.JFrame {
             ));
         
         } catch(Exception ex){
-            JOptionPane.showMessageDialog(getRootPane(), "You have to choose dates!");
-            return;
+             e.setDateOfBegin(null);
+             e.setDateOfEnd(null);
         }
         
         try{
             
             e.setPrice(new BigDecimal(txtPrice.getText()));    
         } catch(Exception ex){
-            JOptionPane.showMessageDialog(getRootPane(), "The price has to be a decimal number!");
-            return;
+            e.setPrice(null);
         }
         
             e.setPayment(chBoxPayment.isSelected());

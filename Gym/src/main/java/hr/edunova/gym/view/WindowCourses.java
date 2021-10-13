@@ -156,6 +156,7 @@ public class WindowCourses extends javax.swing.JFrame {
         try{
             courseController.create();
             readCourses();
+            courseController.setEntity(null);
         } catch(GymException ex){
             JOptionPane.showMessageDialog(getRootPane(), ex.getMessage());
         }
