@@ -187,6 +187,11 @@ public class WindowMembership extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        tblMemberships.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tblMembershipsMousePressed(evt);
+            }
+        });
         jScrollPane3.setViewportView(tblMemberships);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -293,15 +298,11 @@ public class WindowMembership extends javax.swing.JFrame {
             return;
         }
         
-       /* memberController.setEntity(lstMembers.getSelectedValue());
-        //courseController.setEntity(lstMembers.getSelectedValue());
-        var mc = memberController.getEntity();
-        
-        //memberController.setEntity((Member)cbCourses.getSelectedItem());
-        var m = membershipController.getEntity();
+        memberController.setEntity(lstMembers.getSelectedValue());
+        var m = memberController.getEntity();
         
         
-        cbCourses.setSelectedItem(m.getMember()); //m mi je ovdje null*/
+     
         
         
         
@@ -362,6 +363,12 @@ public class WindowMembership extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void tblMembershipsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMembershipsMousePressed
+        
+        
+        
+    }//GEN-LAST:event_tblMembershipsMousePressed
+
     private void readMembers(){
         DefaultListModel<Member> m = new DefaultListModel<>();
         memberController.read(txtSearch.getText()).forEach(mr -> m.addElement(mr));
@@ -403,24 +410,22 @@ public class WindowMembership extends javax.swing.JFrame {
             ));
             e.setDateOfEnd(Date.from(
                 dpEndDate.getDate().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()
-        ));
+            ));
         
         } catch(Exception ex){
             JOptionPane.showMessageDialog(getRootPane(), "You have to choose dates!");
             return;
         }
-            
-            
-        
         
         try{
-        e.setPrice(new BigDecimal(txtPrice.getText()));    
+            
+            e.setPrice(new BigDecimal(txtPrice.getText()));    
         } catch(Exception ex){
             JOptionPane.showMessageDialog(getRootPane(), "The price has to be a decimal number!");
             return;
         }
         
-        e.setPayment(chBoxPayment.isSelected());
+            e.setPayment(chBoxPayment.isSelected());
         
         
     }

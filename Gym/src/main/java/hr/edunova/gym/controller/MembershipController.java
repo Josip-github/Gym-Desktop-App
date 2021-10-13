@@ -26,6 +26,7 @@ public class MembershipController extends Controller<Membership> {
         priceController();
         courseChooseController();
         dateController();
+        memberChooseController();
     }
 
     @Override
@@ -58,6 +59,12 @@ public class MembershipController extends Controller<Membership> {
     private void dateController() throws GymException{
         if(entity.getDateOfBegin() == null || entity.getDateOfEnd() == null){
             throw new GymException("You have to choose dates");
+        }
+    }
+    
+    private void memberChooseController() throws GymException{
+        if(entity.getMember() == null){
+            throw new GymException("You can't create a membership without a member.");
         }
     }
 }
