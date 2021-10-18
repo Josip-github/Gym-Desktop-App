@@ -23,8 +23,8 @@ public class MembershipController extends Controller<Membership> {
 
     @Override
     protected void createController() throws GymException {
-         memberChooseController();
-         courseChooseController();
+        memberChooseController();
+        courseChooseController();
         priceController();
         dateController();
        
@@ -32,10 +32,11 @@ public class MembershipController extends Controller<Membership> {
 
     @Override
     protected void updateController() throws GymException {
-        priceController();
-        courseChooseController();
-        dateController();
         memberChooseController();
+        courseChooseController();
+        priceController();
+        dateController();
+        
     }
 
     @Override
