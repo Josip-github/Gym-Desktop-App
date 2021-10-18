@@ -286,14 +286,6 @@ public class WindowMembership extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         readMembers();
-        
-        
-        /*if(lstMembers.getValueIsAdjusting()){
-            JOptionPane.showMessageDialog(getRootPane(), 
-                    "There is no member with given name/surname "
-                            + "\nAdvice: Go to \"Members\" window and create that member first,"
-                            + "\nthen you'll be able to manage him here.");
-        }*/
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
@@ -303,6 +295,7 @@ public class WindowMembership extends javax.swing.JFrame {
         try {
             membershipController.create();
             readMemberships();
+            membershipController.setEntity(null);
         } catch (GymException ex) {
             JOptionPane.showMessageDialog(getRootPane(), ex.getMessage());
         }
@@ -318,6 +311,7 @@ public class WindowMembership extends javax.swing.JFrame {
         try {
             membershipController.update();
             readMemberships();
+            membershipController.setEntity(null);
         } catch (GymException ex) {
             JOptionPane.showMessageDialog(getRootPane(), ex.getMessage());
         }
@@ -334,6 +328,7 @@ public class WindowMembership extends javax.swing.JFrame {
         try {
             membershipController.delete();
             readMemberships();
+            membershipController.setEntity(null);
         } catch (GymException ex) {
             JOptionPane.showMessageDialog(getRootPane(), ex.getMessage());
         }

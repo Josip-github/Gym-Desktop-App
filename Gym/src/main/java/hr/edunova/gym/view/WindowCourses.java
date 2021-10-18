@@ -187,6 +187,7 @@ public class WindowCourses extends javax.swing.JFrame {
         try {
             courseController.update();
             readCourses();
+            courseController.setEntity(null);
         } catch (GymException ex) {
             JOptionPane.showMessageDialog(getRootPane(), ex.getMessage());
         }
@@ -203,6 +204,7 @@ public class WindowCourses extends javax.swing.JFrame {
         try {
             courseController.delete();
             readCourses();
+            courseController.setEntity(null);
         } catch (GymException ex) {
             JOptionPane.showMessageDialog(getRootPane(), ex.getMessage());
         }

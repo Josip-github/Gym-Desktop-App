@@ -16,9 +16,9 @@ public abstract class PersonController<T extends Person> extends Controller<T> {
 
     @Override
     protected void createController() throws GymException{
-        oibController();
         firstnameController();
         lastnameController();
+        oibController();
         emailController();
     }
 

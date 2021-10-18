@@ -201,6 +201,7 @@ public class WindowEmployees extends javax.swing.JFrame {
         try {
             employeeController.create();
             readMembers();
+            employeeController.setEntity(null);
         } catch (GymException ex) {
             JOptionPane.showMessageDialog(getRootPane(), ex.getMessage());
         }
@@ -218,6 +219,7 @@ public class WindowEmployees extends javax.swing.JFrame {
         try {
             employeeController.create();
             readMembers();
+            employeeController.setEntity(null);
         } catch (GymException ex) {
             JOptionPane.showMessageDialog(getRootPane(), ex.getMessage());
         }
@@ -235,6 +237,7 @@ public class WindowEmployees extends javax.swing.JFrame {
         try {
             employeeController.delete();
             readMembers();
+            employeeController.setEntity(null);
         } catch (GymException ex) {
             JOptionPane.showMessageDialog(getRootPane(), ex.getMessage());
         }

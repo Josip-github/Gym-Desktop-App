@@ -199,6 +199,7 @@ public class WindowMembers extends javax.swing.JFrame {
         try {
             memberController.create();
             readMembers();
+            memberController.setEntity(null);
         } catch (GymException ex) {
             JOptionPane.showMessageDialog(getRootPane(), ex.getMessage());
         }
@@ -216,6 +217,7 @@ public class WindowMembers extends javax.swing.JFrame {
         try {
             memberController.create();
             readMembers();
+            memberController.setEntity(null);
         } catch (GymException ex) {
             JOptionPane.showMessageDialog(getRootPane(), ex.getMessage());
         }
@@ -233,6 +235,7 @@ public class WindowMembers extends javax.swing.JFrame {
         try {
             memberController.delete();
             readMembers();
+            memberController.setEntity(null);
         } catch (GymException ex) {
             JOptionPane.showMessageDialog(getRootPane(), ex.getMessage());
         }
