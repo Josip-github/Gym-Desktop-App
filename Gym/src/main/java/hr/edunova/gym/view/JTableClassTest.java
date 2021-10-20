@@ -9,9 +9,12 @@ import hr.edunova.gym.controller.CourseController;
 import hr.edunova.gym.controller.MemberController;
 import hr.edunova.gym.controller.MembershipController;
 import hr.edunova.gym.model.Membership;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,6 +27,8 @@ public class JTableClassTest extends javax.swing.JFrame {
     private CourseController courseController;
     private MemberController memberController;
     SimpleDateFormat sdf;
+    DecimalFormatSymbols symbols = new DecimalFormatSymbols(new Locale("hr","HR"));
+        DecimalFormat df = new DecimalFormat("###,###.00",symbols);
     /**
      * Creates new form JTableClassTest
      */
@@ -52,7 +57,8 @@ public class JTableClassTest extends javax.swing.JFrame {
                 //m.getDateOfBegin().toString(),
                 sdf.format(m.getDateOfEnd()).toString(),
                 //m.getDateOfEnd().toString(),
-                m.getPrice().toString(),
+                //m.getPrice().toString(),
+                df.format(m.getPrice()),
                 m.getPayment().toString()
             };
             tblModel.addRow(row);

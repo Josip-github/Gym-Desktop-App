@@ -5,6 +5,7 @@
  */
 package hr.edunova.gym.view;
 
+import com.github.lgooddatepicker.components.DatePickerSettings;
 import hr.edunova.gym.controller.CourseController;
 import hr.edunova.gym.controller.MemberController;
 import hr.edunova.gym.controller.MembershipController;
@@ -14,10 +15,13 @@ import hr.edunova.gym.model.Membership;
 import hr.edunova.gym.util.Application;
 import hr.edunova.gym.util.GymException;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -66,6 +70,14 @@ public class WindowMembership extends javax.swing.JFrame {
         cbm.addElement(courseNull);
         new CourseController().read().forEach(c -> cbm.addElement(c));
         cbCourses.setModel(cbm);
+        
+        DatePickerSettings dps = new DatePickerSettings(new Locale("en", "US"));
+        dps.setFormatForDatesCommonEra("dd.MM.yyyy");
+        
+        dpDateOfBegin.setSettings(dps);
+        
+        DatePickerSettings dps2 = new DatePickerSettings(new Locale("en", "US"));
+        dpEndDate.setSettings(dps2);
         
     }
 
@@ -349,7 +361,11 @@ public class WindowMembership extends javax.swing.JFrame {
         lstMembers.setModel(m);
         //txtSearch.setText(ms.getMember().getLastname());
         cbCourses.setSelectedItem(ms.getCourse());
-        txtPrice.setText(ms.getPrice().toString());
+        
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols(new Locale("hr","HR"));
+        DecimalFormat df = new DecimalFormat("###,###.00",symbols);
+        
+        txtPrice.setText(df.format(ms.getPrice()));
         dpDateOfBegin.setDate(ms.getDateOfBegin().toInstant()
                                 .atZone(ZoneId.systemDefault()).toLocalDate());
         dpEndDate.setDate(ms.getDateOfEnd().toInstant()
