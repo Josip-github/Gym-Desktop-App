@@ -39,6 +39,9 @@ public class WindowMembership extends javax.swing.JFrame {
     private MemberController memberController;
     private MembershipController membershipController;
     SimpleDateFormat sdf;
+    
+    DecimalFormatSymbols symbols = new DecimalFormatSymbols(new Locale("hr","HR"));
+        DecimalFormat df = new DecimalFormat("###,###.00",symbols);
     /**
      * Creates new form WindowMembership
      */
@@ -77,6 +80,7 @@ public class WindowMembership extends javax.swing.JFrame {
         dpDateOfBegin.setSettings(dps);
         
         DatePickerSettings dps2 = new DatePickerSettings(new Locale("en", "US"));
+        dps2.setFormatForDatesCommonEra("dd.MM.yyyy");
         dpEndDate.setSettings(dps2);
         
     }
@@ -122,6 +126,12 @@ public class WindowMembership extends javax.swing.JFrame {
         jScrollPane1.setViewportView(lstMembers);
 
         lblCourses.setText("Courses:");
+
+        cbCourses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbCoursesActionPerformed(evt);
+            }
+        });
 
         lblDateOfBegin.setText("Date of begin:");
 
@@ -362,9 +372,6 @@ public class WindowMembership extends javax.swing.JFrame {
         //txtSearch.setText(ms.getMember().getLastname());
         cbCourses.setSelectedItem(ms.getCourse());
         
-        DecimalFormatSymbols symbols = new DecimalFormatSymbols(new Locale("hr","HR"));
-        DecimalFormat df = new DecimalFormat("###,###.00",symbols);
-        
         txtPrice.setText(df.format(ms.getPrice()));
         dpDateOfBegin.setDate(ms.getDateOfBegin().toInstant()
                                 .atZone(ZoneId.systemDefault()).toLocalDate());
@@ -375,6 +382,13 @@ public class WindowMembership extends javax.swing.JFrame {
     private void btnShowAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowAllActionPerformed
         new JTableClassTest().setVisible(true);
     }//GEN-LAST:event_btnShowAllActionPerformed
+
+    private void cbCoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCoursesActionPerformed
+       courseController.setEntity((Course) cbCourses.getSelectedItem());
+       var ent = courseController.getEntity();
+       txtPrice.setText(df.format(ent.getPrice()));
+       
+    }//GEN-LAST:event_cbCoursesActionPerformed
 
     private void readMembers(){
         DefaultListModel<Member> m = new DefaultListModel<>();
