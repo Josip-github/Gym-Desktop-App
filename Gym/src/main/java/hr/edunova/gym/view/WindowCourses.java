@@ -227,7 +227,7 @@ public class WindowCourses extends javax.swing.JFrame {
             return;
         }
         try{
-            s.setPrice(new BigDecimal(txtPrice.getText()));
+            s.setPrice(new BigDecimal(txtPrice.getText().replace(',', '.')));
         } catch(Exception e){
             JOptionPane.showMessageDialog(getRootPane(), "For price you have to type a decimal number.");
             return;

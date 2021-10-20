@@ -41,7 +41,7 @@ public class WindowMembership extends javax.swing.JFrame {
     SimpleDateFormat sdf;
     
     DecimalFormatSymbols symbols = new DecimalFormatSymbols(new Locale("hr","HR"));
-        DecimalFormat df = new DecimalFormat("###,###.00",symbols);
+    DecimalFormat df = new DecimalFormat("###,###.00",symbols);
     /**
      * Creates new form WindowMembership
      */
@@ -384,6 +384,11 @@ public class WindowMembership extends javax.swing.JFrame {
     }//GEN-LAST:event_btnShowAllActionPerformed
 
     private void cbCoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCoursesActionPerformed
+       
+       if(cbCourses.getSelectedIndex()==0){
+           return;
+       }
+        
        courseController.setEntity((Course) cbCourses.getSelectedItem());
        var ent = courseController.getEntity();
        txtPrice.setText(df.format(ent.getPrice()));
@@ -437,7 +442,7 @@ public class WindowMembership extends javax.swing.JFrame {
         
         try{
             
-            e.setPrice(new BigDecimal(txtPrice.getText()));    
+            e.setPrice(new BigDecimal(txtPrice.getText().replace(',', '.')));    
         } catch(Exception ex){
             e.setPrice(null);
         }
