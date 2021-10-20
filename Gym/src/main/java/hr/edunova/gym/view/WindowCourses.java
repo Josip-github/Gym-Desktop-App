@@ -10,6 +10,9 @@ import hr.edunova.gym.model.Course;
 import hr.edunova.gym.util.Application;
 import hr.edunova.gym.util.GymException;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -172,7 +175,11 @@ public class WindowCourses extends javax.swing.JFrame {
         var s = courseController.getEntity();
         txtName.setText(s.getName());
         txtDuration.setText(String.valueOf(s.getDuration()));
-        txtPrice.setText(String.valueOf(s.getPrice()));
+        
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols(new Locale("hr","HR"));
+        DecimalFormat df = new DecimalFormat("###,###.00",symbols);
+        
+        txtPrice.setText(df.format(s.getPrice()));
         
     }//GEN-LAST:event_lstCoursesValueChanged
 

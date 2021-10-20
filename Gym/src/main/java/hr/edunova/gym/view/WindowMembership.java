@@ -51,6 +51,8 @@ public class WindowMembership extends javax.swing.JFrame {
     private void readMemberships(){
         DefaultListModel<Membership> m = new DefaultListModel();
         membershipController.read().forEach(mc -> m.addElement(mc));
+        //https://www.codejava.net/java-se/swing/jlist-custom-renderer-example
+        lstMemberships.setCellRenderer(new MembershipRenderer());
         lstMemberships.setModel(m);
            
     }

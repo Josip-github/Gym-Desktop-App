@@ -81,10 +81,7 @@ public class Membership extends Instance {
     }
     
 
-    @Override
-    public String toString() {
-        return "Membership: " + member.getFirstname() + " " + member.getLastname() + ", date Of Begin: " + dateOfBegin + ", payment: " + payment;
-    }
+
     
     
     
