@@ -64,8 +64,11 @@ public abstract class PersonController<T extends Person> extends Controller<T> {
 
     private void firstnameController() throws GymException {
         
+        String strApostrophe = "'";
+        char[] apostrophes = strApostrophe.toCharArray();
+        char apostrophe = apostrophes[0];
         for(char c: entity.getFirstname().toCharArray()){
-           if(!(Character.isLetter(c))){
+           if(!(Character.isLetter(c)) && c != '-' && c != apostrophe){
                throw new GymException("You can't use numbers or characters for a name"
                        + ", only letters are allowed.");
            }
@@ -83,8 +86,11 @@ public abstract class PersonController<T extends Person> extends Controller<T> {
 
     private void lastnameController() throws GymException {
         
+        String strApostrophe = "'";
+        char[] apostrophes = strApostrophe.toCharArray();
+        char apostrophe = apostrophes[0];
        for(char c: entity.getLastname().toCharArray()){
-           if(!(Character.isLetter(c))){
+           if(!(Character.isLetter(c)) && c != '-' && c != apostrophe){
                throw new GymException("You can't use numbers or characters for a name"
                        + ", only letters are allowed.");
            }
