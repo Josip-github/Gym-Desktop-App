@@ -24,8 +24,9 @@ public class CourseController extends Controller<Course> {
     @Override
     protected void createController() throws GymException {
        nameController();
-       priceController();
        durationController();
+       priceController();
+       
     }
 
     @Override
@@ -50,8 +51,6 @@ public class CourseController extends Controller<Course> {
     }
 
     private void priceController() throws GymException {
-        
-        
         
         if(entity.getPrice() == null){
             throw new GymException("There has to be a price for a course");

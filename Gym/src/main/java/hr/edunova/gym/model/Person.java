@@ -58,7 +58,7 @@ public class Person extends Instance {
 
     @Override
     public String toString() {
-        return "Person: " + firstname + " " + lastname;
+        return firstname + " " + lastname;
     }
     
     
