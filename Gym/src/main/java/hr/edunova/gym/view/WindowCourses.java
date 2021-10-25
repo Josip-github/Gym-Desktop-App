@@ -220,17 +220,17 @@ public class WindowCourses extends javax.swing.JFrame {
     private void setValuesIntoEntity(){
         var s = courseController.getEntity();
         s.setName(txtName.getText());
+        
         try{
             s.setDuration(Integer.parseInt(txtDuration.getText()));
         } catch(Exception e){
             JOptionPane.showMessageDialog(getRootPane(), "For duration you have to type a whole number.");
-            return;
         }
+        
         try{
             s.setPrice(new BigDecimal(txtPrice.getText().replace(',', '.')));
         } catch(Exception e){
-            JOptionPane.showMessageDialog(getRootPane(), "For price you have to type a decimal number.");
-            return;
+            JOptionPane.showMessageDialog(getRootPane(), "For price you have to type a decimal number.");  
         }
     }
     /**

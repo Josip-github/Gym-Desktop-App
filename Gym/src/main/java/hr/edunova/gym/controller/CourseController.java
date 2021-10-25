@@ -41,7 +41,7 @@ public class CourseController extends Controller<Course> {
 
     private void nameController() throws GymException {
        
-        if(entity.getName().equals(null) || entity.getName().trim().length()==0){
+        if(entity.getName() == null || entity.getName().trim().length()==0){
            throw new GymException("Name of course can't be empty.");
        }
        
@@ -62,6 +62,12 @@ public class CourseController extends Controller<Course> {
     }
 
     private void durationController() throws GymException {
+        
+        if(entity.getDuration() == 0){
+            throw new GymException("Duration is empty, please fill in the duration field!");
+        }
+        
+        
         
         if(entity.getDuration() > 100 || entity.getDuration() < 1){
             throw new GymException("A course can't last more than 100 days or less than 1 day.");
